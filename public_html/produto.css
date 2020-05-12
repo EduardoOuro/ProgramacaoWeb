@@ -1,0 +1,135 @@
+.cores label::after{
+    content: '';
+    display: block;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    position: absolute;
+    top: 30px;
+    cursor: pointer;
+        
+}
+label[for=verde]::after{
+    background-color: #33cc66;
+    left: 0;
+}
+label[for=rosa]::after{
+    background-color: #FF6666;
+    left: 60px;
+}
+label[for=azul]::after{
+    background-color: #6666FF;
+    left: 120px;
+}
+.cores input:checked + label::after{
+    border: 6px solid rgba(0,0,0,0.3);
+}
+.cores input[type=radio]{
+    display: none;
+}
+.cores input:not(:checked) + label img{
+    display: none;
+}
+.cores{
+    position: relative;
+    padding-top: 90px; 
+}
+
+.cores label::after{
+    box-sizing: border-box;
+    border: 6px solid rgba(0,0,0,0);
+    transition: 1s;
+}
+
+.cores label img{
+    display: block;
+    max-width: 100%;
+}
+
+
+.cores label:hover::after{
+    border: 6px solid rgba(0,0,0,0.1);
+}
+.produto{
+    color: #333;
+    line-height: 1.3;
+    margin-top: 2em;
+}
+
+.produto h1{
+    font-size: 1.8em;
+    font-weight: bold;
+}
+.produto p{
+    font-size: 1.2em;
+    font-style: italic;
+    margin-bottom: 1em;
+}
+.produto legend {
+    display:block;
+    font: bold 0.9em/2.5 Arial;
+    text-transform: uppercase;
+}
+.comprar{
+    background: #91BD3C;
+    border: none;
+    color: #333;
+    font-size: 1.4em;
+    text-transform: uppercase;
+    box-shadow: 0 1px 3px #777;
+    display: block;
+    padding: 0.5em 1em;
+    margin: 1em 0;
+}
+output {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    border: 1px solid black;
+    padding: 10px;
+}
+
+@media (min-width: 630px){
+    
+    .produto{
+        /*A FOTO VAI SE POSICIONAR ABSOLUTAMENTE COM RELAÇÃO
+        A ESSE ELEMENTO, POR ISSO PRECISO ESTAR POSICIONADO*/
+        position: relative;
+        /*DEIXAR 40% DE ESPAÇO EM BRANCO NA ESQUERDA PARA FOTO OCUPAR*/
+        padding-left: 40%;
+        font-size: 1.2em;
+    }
+    .cores{
+        /*ESTAVA RELATIVE ANTES, REINICIO PARA STATIC PARA EVITAR QUE
+        A FOTO SE POSICIONE COM RELAÇÃO A MIM*/
+        position: static;
+        /*ZERANDO O PADDING-TOP QUE TINHA ANTES E NÃO PRECISA MAIS*/
+        padding: 0; 
+    }
+    .cores legend{
+        /*ESTAVA ABSOLUTE, PARA TER O MESMO COMPORTAMENTO NO CHROME E NO FIREFOX*/
+        position: static;
+    }
+    .cores label img {
+        /*IMAGEM SE POSICIONA ABSOLUTAMENTE A ESQUERDA COM RELAÇÃO AO .PRODUTO*/
+        position: absolute;
+        top: 0;
+        left: 0;
+        max-width: 35%;
+        max-height: 100%;
+    }
+    .cores label:after{
+        /*AS BOLINHAS COLORIDAS TINHAS POSIÇÃO E NÃO PRECISAMOS MAIS, BASTA
+        FLUTAR UMA DO LADO DA OUTRA*/
+        position: static;
+        float: left;
+        margin-right: 10px;
+    }
+
+
+}
+
+
+
+
+
